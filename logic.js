@@ -418,3 +418,42 @@ function renderconfernce() {
 }
 
 renderconfernce();
+
+function renderstaff() {
+    staffplace.innerHTML = '';
+
+    staff.forEach((user, index) => {
+        const card = document.createElement('div');
+        card.className =
+            "flex justify-evenly items-center w-full h-[40px] bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
+
+        card.innerHTML = `
+            <button class="infoinplace">
+                <h2 class="text-center w-[50%] text-[12px] font-bold">${user.name}</h2>
+            </button>
+            <button class="deleteinplace bg-red-600 w-fit text-white px-3 py-1 rounded-lg text-[12px] hover:bg-red-700 transition">X</button>
+        `;
+
+        const infoinplace = card.querySelector('.infoinplace');
+        infoinplace.addEventListener('click', () => {
+            staffinfo(index);
+        });
+
+        const deleteinplace = card.querySelector('.deleteinplace');
+        deleteinplace.addEventListener('click', () => {
+            let deleteIndex = staff.findIndex(u => u.id === user.id)
+            let deletedUser = staff.splice(deleteIndex,1);
+            allusers.push(deletedUser[0]);
+
+            localStorage.setItem('staff', JSON.stringify(staff));
+            localStorage.setItem('allusers', JSON.stringify(allusers));
+
+            renderstaff();
+            displayall();
+        });
+
+        staffplace.appendChild(card);
+    });
+}
+
+renderstaff();
