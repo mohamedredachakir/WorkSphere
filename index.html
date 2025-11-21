@@ -43,12 +43,12 @@
         <div class="bg-white py-5 px-4 h-[610px] w-fit rounded-md  overflow-y-scroll">
             <form id="add-form" class=" flex flex-col justify-center items-center gap-5">
                 <h3>form</h3>
-              <input id="username" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="text" placeholder="name" />
-              <input id="userage" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="text" placeholder="age" />
-              <input id="usermail" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="email" placeholder="email" />
-              <input id="usertel" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="tel" placeholder="phone" />
-              <select class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" name="role" id="userrole">
-                <option value="Role">---Role---</option>
+              <input id="username" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="text" placeholder="name" required />
+              <input id="userage" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="number" placeholder="age" required />
+              <input id="usermail" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="email" placeholder="email" required />
+              <input id="usertel" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="tel" placeholder="phone" required/>
+              <select class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" name="role" id="userrole" required>
+                <option >---Role---</option>
                 <option value="Réceptionnistes">Réceptionnistes</option>
                 <option value="Techniciens IT">Techniciens IT</option>
                 <option value="Agents de sécurité">Agents de sécurité</option>
@@ -56,9 +56,9 @@
                 <option value="Nettoyage">Nettoyage</option>
                 <option value="Autres rôles">Autres rôles</option>
               </select>
-              <input id="userimg" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="text" placeholder="img-url" />
-              <input id="userstart" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="datetime-local" placeholder="start" />
-              <input id="userleave" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="datetime-local" placeholder="leave" />
+              <input id="userimg" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="text" placeholder="img-url" required />
+              <input id="userstart" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="datetime-local" placeholder="start" required />
+              <input id="userleave" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="datetime-local" placeholder="leave" required />
              
               <div class="flex flex-col items-center justify-center gap-4 ">
                 <button id="btnexpr" class="bg-orange-600 h-[30px] w-[300px] rounded-md border border-gray-800 transition-transform duration-300 hover:scale-105 hover:text-white hover:duration-500">ADD EXPERION</button>

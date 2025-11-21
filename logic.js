@@ -29,8 +29,59 @@ btnannuler.addEventListener("click", () => {
   modalform.classList.add("hidden");
 });
 
+
+let nameRegex = /^[A-Za-z\s]+$/;
+let ageRegex = /^(1[0-9]|[2-9][0-9])$/;
+let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+let phoneRegex = /^[0-9]{10}$/;
+let roleRegex = /^(Manager|Nettoyage|Techniciens IT|Agents de sécurité|Réceptionnistes|Autres rôles)$/;
+let imgUrlRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$/i;
+let dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+
+
 btnsubmit.addEventListener("click", (e) => {
   e.preventDefault(); //stop reload page
+
+  if (!nameRegex.test(username.value)) {
+    alert("Name invalid");
+    return;
+  }
+
+  if (!ageRegex.test(userage.value)) {
+    alert("Age invalid");
+    return;
+  }
+
+  if (!emailRegex.test(usermail.value)) {
+    alert("Email invalid");
+    return;
+  }
+
+  if (!phoneRegex.test(usertel.value)) {
+    alert("Phone invalid");
+    return;
+  }
+
+  if (!roleRegex.test(userrole.value)) {
+    alert("Role invalid");
+    return;
+  }
+
+  if (!imgUrlRegex.test(userimg.value)) {
+    alert("Image URL invalid");
+    return;
+  }
+
+  if (!dateRegex.test(userstart.value)) {
+    alert("Start date invalid");
+    return;
+  }
+
+  if (!dateRegex.test(userleave.value)) {
+    alert("Leave date invalid");
+    return;
+  }
+
   let exprstart = document.querySelectorAll(".exprstart");
   let exprleave = document.querySelectorAll(".exprleave");
   let exprdis = document.querySelectorAll(".exprdis");
