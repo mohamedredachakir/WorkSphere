@@ -20,9 +20,7 @@ let allusers = JSON.parse(localStorage.getItem("allusers")) || [];
 btnadd.addEventListener("click", () => {
   modalform.classList.remove("hidden");
   addForm.reset();
-  addForm
-    .querySelectorAll(".exprstart, .exprleave, .exprdis")
-    .forEach((Input) => Input.parentElement.remove());
+  addForm.querySelectorAll(".exprstart, .exprleave, .exprdis").forEach((Input) => Input.parentElement.remove());
 });
 
 btnannuler.addEventListener("click", () => {
@@ -35,8 +33,8 @@ let ageRegex = /^(1[0-9]|[2-9][0-9])$/;
 let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 let phoneRegex = /^[0-9]{10}$/;
 let roleRegex = /^(Manager|Nettoyage|Techniciens IT|Agents de sécurité|Réceptionnistes|Autres rôles)$/;
-let imgUrlRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$/i;
-let dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+// let imgUrlRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$/i;
+// let dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
 
 btnsubmit.addEventListener("click", (e) => {
@@ -67,20 +65,20 @@ btnsubmit.addEventListener("click", (e) => {
     return;
   }
 
-  if (!imgUrlRegex.test(userimg.value)) {
-    alert("Image URL invalid");
-    return;
-  }
+  // if (!imgUrlRegex.test(userimg.value)) {
+  //   alert("Image URL invalid");
+  //   return;
+  // }
 
-  if (!dateRegex.test(userstart.value)) {
-    alert("Start date invalid");
-    return;
-  }
+  // if (!dateRegex.test(userstart.value)) {
+  //   alert("Start date invalid");
+  //   return;
+  // }
 
-  if (!dateRegex.test(userleave.value)) {
-    alert("Leave date invalid");
-    return;
-  }
+  // if (!dateRegex.test(userleave.value)) {
+  //   alert("Leave date invalid");
+  //   return;
+  // }
 
   let exprstart = document.querySelectorAll(".exprstart");
   let exprleave = document.querySelectorAll(".exprleave");
@@ -218,28 +216,51 @@ const btnplaceserver = document.querySelector('#btnplaceserver');
 const btnplacearchive = document.querySelector('#btnplacearchive');
 const btnplacesecurite = document.querySelector('#btnplacesecurite');
 
+let rec = 0;
+let conf = 0;
+let st = 0;
+let ser = 0;
+let ar = 0;
+let sec = 0;
+
 btnplaceReception.addEventListener('click', ()=>{
-    displayroles('Réception')
+    rec++;
+    if(rec == 4){
+      alert("salle plaine");
+    }else{displayroles('Réception')}
+    
 })
 
 btnplaceconference.addEventListener('click', ()=>{
-    displayroles('conference')
+    conf++;
+    if(conf == 3){
+      alert("salle plaine");
+    }else{displayroles('conference')}
+    
 })
 
 btnplacestaff.addEventListener('click', ()=>{
-    displayroles('staff')
+    st++;
+    if(st == 3){alert("salle plaine");}
+    else{displayroles('staff')}
 })
 
 btnplaceserver.addEventListener('click', ()=>{
-    displayroles('server')
+    ser++;
+    if(ser == 2){alert("salle plaine");}
+    else{displayroles('server')}
 })
 
 btnplacearchive.addEventListener('click', ()=>{
-    displayroles('archive')
+    ar++;
+    if(ar == 1){alert("salle plaine");}
+    else {displayroles('archive')}
 })
 
 btnplacesecurite.addEventListener('click', ()=>{
-    displayroles('securite')
+    sec++;
+    if(sec == 1){alert("salle plaine");}
+      else{displayroles('securite')}
 })
 
 function displayroles(room) {
