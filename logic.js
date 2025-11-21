@@ -537,3 +537,261 @@ function renderserver() {
 }
 
 renderserver();
+
+
+
+function securiteinfo(index) {
+    let user = securite[index];
+
+    const card = document.createElement('div');
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+
+    card.innerHTML = `
+        <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
+        <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
+
+        <div class="flex flex-col gap-2">
+            <p><strong>Age:</strong> ${user.age}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Phone:</strong> ${user.phone}</p>
+            <p><strong>Role:</strong> ${user.role}</p>
+            <p><strong>start:</strong> ${user.start}</p>
+            <p><strong>leave:</strong> ${user.leave}</p>
+        </div>
+
+        <div class="flex justify-center gap-5">
+            <button class="deleteuserfrominfo bg-red-700 rounded-md w-[60px] h-[50px]">delete</button>
+            <button class="infouserclose bg-green-400 rounded-md w-[60px] h-[50px]">close</button>
+        </div>
+    `;
+
+    infoplace.appendChild(card);
+
+    const deleteuserfrominfo = card.querySelector('.deleteuserfrominfo');
+    deleteuserfrominfo.addEventListener('click', () => {
+        let deletedUser = securite.splice(index, 1);
+        allusers.push(deletedUser[0]);
+
+        localStorage.setItem('securite', JSON.stringify(securite));
+        localStorage.setItem('allusers', JSON.stringify(allusers));
+
+        rendersecurite();
+        displayall();
+
+        card.classList.add('hidden');
+    });
+
+    const infouserclose = card.querySelector('.infouserclose');
+    infouserclose.addEventListener('click', () => {
+        card.classList.add('hidden');
+    });
+}
+
+function Receptioninfo(index){
+    let user = Reception[index];
+    const card = document.createElement('div');
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.innerHTML = `
+        <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
+        <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
+
+        <div class="flex flex-col gap-2">
+            <p><strong>Age:</strong> ${user.age}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Phone:</strong> ${user.phone}</p>
+            <p><strong>Role:</strong> ${user.role}</p>
+            <p><strong>start:</strong> ${user.start}</p>
+            <p><strong>leave:</strong> ${user.leave}</p>
+        </div>
+
+        <div class="flex justify-center gap-5">
+            <button class="deleteuserfrominfo bg-red-700 rounded-md w-[60px] h-[50px]">delete</button>
+            <button class="infouserclose bg-green-400 rounded-md w-[60px] h-[50px]">close</button>
+        </div>
+    `;
+    infoplace.appendChild(card);
+
+    const deleteuserfrominfo = card.querySelector('.deleteuserfrominfo');
+    deleteuserfrominfo.addEventListener('click', ()=>{
+        let deleted = Reception.splice(index,1);
+        allusers.push(deleted[0]);
+        localStorage.setItem('Reception', JSON.stringify(Reception));
+        localStorage.setItem('allusers', JSON.stringify(allusers));
+        renderreception();
+        displayall();
+        card.classList.add('hidden');
+    });
+
+    const infouserclose = card.querySelector('.infouserclose');
+    infouserclose.addEventListener('click', ()=>{
+        card.classList.add('hidden');
+    });
+}
+
+function conferenceinfo(index){
+    let user = conference[index];
+    const card = document.createElement('div');
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.innerHTML = `
+        <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
+        <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
+
+        <div class="flex flex-col gap-2">
+            <p><strong>Age:</strong> ${user.age}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Phone:</strong> ${user.phone}</p>
+            <p><strong>Role:</strong> ${user.role}</p>
+            <p><strong>start:</strong> ${user.start}</p>
+            <p><strong>leave:</strong> ${user.leave}</p>
+        </div>
+
+        <div class="flex justify-center gap-5">
+            <button class="deleteuserfrominfo bg-red-700 rounded-md w-[60px] h-[50px]">delete</button>
+            <button class="infouserclose bg-green-400 rounded-md w-[60px] h-[50px]">close</button>
+        </div>
+    `;
+    infoplace.appendChild(card);
+
+    const deleteuserfrominfo = card.querySelector('.deleteuserfrominfo');
+    deleteuserfrominfo.addEventListener('click', ()=>{
+        let deleted = conference.splice(index,1);
+        allusers.push(deleted[0]);
+        localStorage.setItem('conference', JSON.stringify(conference));
+        localStorage.setItem('allusers', JSON.stringify(allusers));
+        renderconfernce();
+        displayall();
+        card.classList.add('hidden');
+    });
+
+    const infouserclose = card.querySelector('.infouserclose');
+    infouserclose.addEventListener('click', ()=>{
+        card.classList.add('hidden');
+    });
+}
+
+
+function staffinfo(index){
+    let user = staff[index];
+    const card = document.createElement('div');
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.innerHTML = `
+        <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
+        <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
+
+        <div class="flex flex-col gap-2">
+            <p><strong>Age:</strong> ${user.age}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Phone:</strong> ${user.phone}</p>
+            <p><strong>Role:</strong> ${user.role}</p>
+            <p><strong>start:</strong> ${user.start}</p>
+            <p><strong>leave:</strong> ${user.leave}</p>
+        </div>
+
+        <div class="flex justify-center gap-5">
+            <button class="deleteuserfrominfo bg-red-700 rounded-md w-[60px] h-[50px]">delete</button>
+            <button class="infouserclose bg-green-400 rounded-md w-[60px] h-[50px]">close</button>
+        </div>
+    `;
+    infoplace.appendChild(card);
+
+    const deleteuserfrominfo = card.querySelector('.deleteuserfrominfo');
+    deleteuserfrominfo.addEventListener('click', ()=>{
+        let deleted = staff.splice(index,1);
+        allusers.push(deleted[0]);
+        localStorage.setItem('staff', JSON.stringify(staff));
+        localStorage.setItem('allusers', JSON.stringify(allusers));
+        renderstaff();
+        displayall();
+        card.classList.add('hidden');
+    });
+
+    const infouserclose = card.querySelector('.infouserclose');
+    infouserclose.addEventListener('click', ()=>{
+        card.classList.add('hidden');
+    });
+}
+
+function archiveinfo(index){
+    let user = archive[index];
+    const card = document.createElement('div');
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.innerHTML = `
+        <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
+        <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
+
+        <div class="flex flex-col gap-2">
+            <p><strong>Age:</strong> ${user.age}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Phone:</strong> ${user.phone}</p>
+            <p><strong>Role:</strong> ${user.role}</p>
+            <p><strong>start:</strong> ${user.start}</p>
+            <p><strong>leave:</strong> ${user.leave}</p>
+        </div>
+
+        <div class="flex justify-center gap-5">
+            <button class="deleteuserfrominfo bg-red-700 rounded-md w-[60px] h-[50px]">delete</button>
+            <button class="infouserclose bg-green-400 rounded-md w-[60px] h-[50px]">close</button>
+        </div>
+    `;
+    infoplace.appendChild(card);
+
+    const deleteuserfrominfo = card.querySelector('.deleteuserfrominfo');
+    deleteuserfrominfo.addEventListener('click', ()=>{
+        let deleted = archive.splice(index,1);
+        allusers.push(deleted[0]);
+        localStorage.setItem('archive', JSON.stringify(archive));
+        localStorage.setItem('allusers', JSON.stringify(allusers));
+        renderarchive();
+        displayall();
+        card.classList.add('hidden');
+    });
+
+    const infouserclose = card.querySelector('.infouserclose');
+    infouserclose.addEventListener('click', ()=>{
+        card.classList.add('hidden');
+    });
+}
+
+function serverinfo(index){
+    let user = server[index];
+    const card = document.createElement('div');
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.innerHTML = `
+        <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
+        <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
+
+        <div class="flex flex-col gap-2">
+            <p><strong>Age:</strong> ${user.age}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Phone:</strong> ${user.phone}</p>
+            <p><strong>Role:</strong> ${user.role}</p>
+            <p><strong>start:</strong> ${user.start}</p>
+            <p><strong>leave:</strong> ${user.leave}</p>
+        </div>
+
+        <div class="flex justify-center gap-5">
+            <button class="deleteuserfrominfo bg-red-700 rounded-md w-[60px] h-[50px]">delete</button>
+            <button class="infouserclose bg-green-400 rounded-md w-[60px] h-[50px]">close</button>
+        </div>
+    `;
+    infoplace.appendChild(card);
+
+    const deleteuserfrominfo = card.querySelector('.deleteuserfrominfo');
+    deleteuserfrominfo.addEventListener('click', ()=>{
+        let deleted = server.splice(index,1);
+        allusers.push(deleted[0]);
+        localStorage.setItem('server', JSON.stringify(server));
+        localStorage.setItem('allusers', JSON.stringify(allusers));
+        renderserver();
+        displayall();
+        card.classList.add('hidden');
+    });
+
+    const infouserclose = card.querySelector('.infouserclose');
+    infouserclose.addEventListener('click', ()=>{
+        card.classList.add('hidden');
+    });
+}
+
+
+displayall();
