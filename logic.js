@@ -227,6 +227,7 @@ btnplaceReception.addEventListener('click', ()=>{
     rec++;
     if(rec == 4){
       alert("salle plaine");
+      return;
     }else{displayroles('Réception')}
     
 })
@@ -235,31 +236,40 @@ btnplaceconference.addEventListener('click', ()=>{
     conf++;
     if(conf == 3){
       alert("salle plaine");
+      return;
     }else{displayroles('conference')}
     
 })
 
 btnplacestaff.addEventListener('click', ()=>{
     st++;
-    if(st == 3){alert("salle plaine");}
+    if(st == 3){alert("salle plaine");
+      return;
+    }
     else{displayroles('staff')}
 })
 
 btnplaceserver.addEventListener('click', ()=>{
     ser++;
-    if(ser == 2){alert("salle plaine");}
+    if(ser == 2){alert("salle plaine");
+      return;
+    }
     else{displayroles('server')}
 })
 
 btnplacearchive.addEventListener('click', ()=>{
     ar++;
-    if(ar == 1){alert("salle plaine");}
+    if(ar == 1){alert("salle plaine");
+      return;
+    }
     else {displayroles('archive')}
 })
 
 btnplacesecurite.addEventListener('click', ()=>{
     sec++;
-    if(sec == 1){alert("salle plaine");}
+    if(sec == 1){alert("salle plaine");
+      return;
+    }
       else{displayroles('securite')}
 })
 
