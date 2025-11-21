@@ -256,3 +256,54 @@ filtreusers.forEach((user,index)=>{
     })
 
 }
+
+const Receptionplace = document.querySelector('#Receptionplace');
+const serverplace = document.querySelector('#serverplace');
+const securiteplace = document.querySelector('#securiteplace');
+const staffplace = document.querySelector('#staffplace');
+const archiveplace = document.querySelector('#archiveplace');
+const conferenceplace =document.querySelector('#conferenceplace');
+
+
+let Reception = JSON.parse(localStorage.getItem("Reception")) || [];
+let server = JSON.parse(localStorage.getItem("server")) || [];
+let securite = JSON.parse(localStorage.getItem("securite")) || [];
+let staff = JSON.parse(localStorage.getItem("staff")) || [];
+let archive = JSON.parse(localStorage.getItem("archive")) || [];
+let conference = JSON.parse(localStorage.getItem("conference")) || [];
+
+
+function addtoplace(user,room) {
+    removeuser(user);
+    if(room === 'securite'){
+        securite.push(user);
+        localStorage.setItem('securite',JSON.stringify(securite));
+        rendersecurite();
+    }
+    if(room === 'Réception'){
+        Reception.push(user);
+        localStorage.setItem('Reception',JSON.stringify(Reception));
+        renderreception();  
+    }
+    if(room === 'conference'){
+        conference.push(user);
+        localStorage.setItem('conference',JSON.stringify(conference));
+        renderconfernce();
+    }
+    if(room === 'staff'){
+        staff.push(user);
+        localStorage.setItem('staff',JSON.stringify(staff));
+        renderstaff();
+    }
+    if(room === 'archive'){
+        archive.push(user);
+        localStorage.setItem('archive',JSON.stringify(archive));
+        renderarchive();
+    }
+    if(room === 'server'){
+        server.push(user);
+        localStorage.setItem('server',JSON.stringify(server));
+        renderserver();
+    }
+    
+}
