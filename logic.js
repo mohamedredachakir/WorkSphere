@@ -113,3 +113,146 @@ card.className ="flex justify-between items-center px-4 py-2 w-full bg-white/80 
   });
 
 }
+
+
+function removeuser(user) {
+    let index = allusers.findIndex(u => u.id === user.id)
+    console.log(index);
+    allusers.splice(index, 1);
+    console.log(allusers);
+    localStorage.setItem('allusers' , JSON.stringify(allusers));
+    displayall()
+}
+
+const infoplace = document.querySelector('.infoplace');
+function info(index){
+    let user = allusers[index];
+     const card = document.createElement('div');
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.innerHTML = `
+        <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
+        <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
+
+        <div class="flex flex-col gap-2">
+            <p><strong>Age:</strong> ${user.age}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Phone:</strong> ${user.phone}</p>
+            <p><strong>Role:</strong> ${user.role}</p>
+            <p><strong>start:</strong> ${user.start}</p>
+            <p><strong>leave:</strong> ${user.leave}</p>
+            </div>
+            <div class="flex justify-center gap-5"><button class=" deleteuserfrominfo bg-red-700 rounded-md w-[60px] h-[50px]">delete</button>
+            <button class="infouserclose bg-green-400 rounded-md w-[60px] h-[50px]">close</button></div>
+        </div> `
+    infoplace.appendChild(card);
+    
+
+    const deleteuserfrominfo = card.querySelector('.deleteuserfrominfo');
+    deleteuserfrominfo.addEventListener('click' ,()=>{
+        removeuser(index)
+        card.classList.add('hidden');
+        displayall();
+    });
+    const infouserclose = card.querySelector('.infouserclose');
+    infouserclose.addEventListener('click',()=>{
+        card.classList.add('hidden');
+        displayall();
+    })
+}
+
+const btnplaceReception = document.querySelector('#btnplaceReception');
+const btnplaceconference = document.querySelector('#btnplaceconference');
+const btnplacestaff = document.querySelector('#btnplacestaff');
+const btnplaceserver = document.querySelector('#btnplaceserver');
+const btnplacearchive = document.querySelector('#btnplacearchive');
+const btnplacesecurite = document.querySelector('#btnplacesecurite');
+
+btnplaceReception.addEventListener('click', ()=>{
+    displayroles('Réception')
+})
+
+btnplaceconference.addEventListener('click', ()=>{
+    displayroles('conference')
+})
+
+btnplacestaff.addEventListener('click', ()=>{
+    displayroles('staff')
+})
+
+btnplaceserver.addEventListener('click', ()=>{
+    displayroles('server')
+})
+
+btnplacearchive.addEventListener('click', ()=>{
+    displayroles('archive')
+})
+
+btnplacesecurite.addEventListener('click', ()=>{
+    displayroles('securite')
+})
+
+function displayroles(room) {
+    let  filtreusers = allusers.filter((e)=> {
+        if(room === 'securite'){
+            return e.role === "Agents de sécurité" ||  e.role ===  "Nettoyage" || e.role === "Manager"
+        }
+        if(room === 'Réception'){
+            return e.role === "Réceptionnistes" || e.role === "Nettoyage" || e.role === "Manager" || e.role === "Autres rôles" || e.role === "Techniciens IT" || e.role === "Agents de sécurité"
+        }
+        if(room === 'conference'){
+            return e.role === "Nettoyage" || e.role === "Manager" || e.role === "Techniciens IT"
+        }
+        if(room === 'staff'){
+            return e.role === "Réceptionnistes" || e.role === "Nettoyage" || e.role === "Manager" || e.role === "Techniciens IT" || e.role ==="Agents de sécurité"
+        }
+        if(room === 'archive'){
+            return e.role === "Manager" || e.role === "Agents de sécurité" 
+        }
+        if(room === 'server'){
+            return e.role === "Nettoyage" || e.role === "Manager" || e.role === "Techniciens IT"
+        }
+    })
+
+const salleplace = document.querySelector('.salleplace');
+
+document.querySelectorAll(".user").forEach(user =>{
+    user.remove();
+})
+
+
+filtreusers.forEach((user,index)=>{
+        const card = document.createElement("div");
+        card.className = "user bg-gray-300 border rounded-md shadow text-white flex justify-evenly items-center gap-4 relative m-4 h-[60px]";
+        card.innerHTML = `
+        <div class="w-[50%] flex flex-col justify-center items-center">
+        <h2 class="text-center text-[17px] font-bold">${user.name}</h2>
+         <p> ${user.role}</p></div>
+         <div class="w-[50%] flex justify-evenly gap-3">
+         <button class="deletemodalsalle bg-red-600 text-white px-3 py-1 rounded-lg text-[12px] hover:bg-red-700 transition">Dlt</button>
+        <button class="addinthissalle bg-blue-500 text-white px-3 py-1 rounded-lg text-[12px] hover:bg-blue-600 transition">add</button></div>
+        `;
+        salleplace.appendChild(card);
+        salleplace.classList.remove('hidden');
+
+        const deletemodalsalle = card.querySelector(".deletemodalsalle");
+        deletemodalsalle.addEventListener("click", () => {
+        removeuser(user.id);
+        filtreusers.splice(index,1);
+        card.remove();
+        });
+        const addinthissalle = card.querySelector('.addinthissalle');
+        addinthissalle.addEventListener('click',()=>{
+            addtoplace(user,room);
+            salleplace.classList.add("hidden");
+        })
+    })
+    
+    const closeSallePlace = document.querySelector('#closeSallePlace');
+    closeSallePlace.addEventListener('click',()=>{
+        salleplace.classList.add("hidden");
+        salleplace.querySelectorAll(".user").forEach((user)=>{
+            user.remove()
+        })
+    })
+
+}
