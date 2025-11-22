@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <title>Document</title>
+</head>
+<body class="min-h-[100vh]  bg-slate-900/50 flex justify-center sm:items-center ">
+    <div id="bigcontain" class=" relative  bg-slate-200 h-screen  w-[90%] justify-self-center rounded-md border border-gray-500 shadow-lg lg:flex gap-[30px] sm:flex sm:items-center ">
+        <div class="mt-4 mb-4 bg-slate-400/45 w-[90%] h-[300px] justify-self-center rounded-md border border-gray-600/60 shadow-lg sm:w-[30%] sm:h-[525px] ">
+            <div class="mt-3 bg-slate-200/20 w-[90%] h-[70px] justify-self-center flex justify-center rounded-md shadow-lg "><button id="bntadd" class="mt-2 bg-green-500 w-[80%] h-[50px] flex justify-center items-center rounded-md birder border-white shadow-lg text-white ">ADD</button></div>
+            <div id="addplace" class="mt-3 bg-slate-200/20 w-[90%] h-[180px] justify-self-center rounded-md shadow-lg sm:h-[400px] overflow-y-scroll "></div>
+        </div>
+        <div class="grid grid-cols-3 grid-rows-3 gap-4 w-full h-[500px] bg-slate-200 p-4">
+                 <div id="conference" class="bg-red-500 col-start-1 col-end-3 row-start-1 row-end-2 rounded-md flex justify-center items-center">
+                    <div id="conferenceplace" class="flex gap-2 flex-wrap"></div>
+                    <button id="btnplaceconference" class=" bg-slate-600/60 text-[10px] sm:text-[15px] px-2 text-white border border-white w-fit h-fit rounded-md shadow-lg ">Salle de conférence</button>
+                 </div>
+                 <div id="Réception" class="bg-blue-500 col-start-3 col-end-4 row-start-1 row-end-3 rounded-md flex justify-center items-center">
+                    <div id="Receptionplace" class="flex gap-2 flex-wrap"></div>
+                    <button id="btnplaceReception" class=" bg-slate-600/60 text-[10px] sm:text-[15px] px-2 text-white border border-white w-fit h-fit rounded-md shadow-lg ">Réception</button>
+                 </div>
+                 <div id="server" class="bg-green-500 col-start-1 col-end-2 row-start-2 row-end-3 rounded-md flex justify-center items-center">
+                    <div id="serverplace" class="flex gap-2 flex-wrap"></div>
+                    <button id="btnplaceserver" class=" bg-slate-600/60 text-[10px] sm:text-[15px] px-2 text-white border border-white w-fit h-fit rounded-md shadow-lg ">Salle des serveurs</button>
+                 </div>
+                 <div id="securite" class="bg-yellow-500 col-start-2 col-end-4 row-start-3 row-end-4 rounded-md flex justify-center items-center">
+                    <div id="securiteplace" class="flex gap-2 flex-wrap"></div>
+                    <button id="btnplacesecurite" class=" bg-slate-600/60 text-[10px] sm:text-[15px] px-2 text-white border border-white w-fit h-fit rounded-md shadow-lg ">Salle de sécurité</button>
+                 </div>
+                 <div id="staff" class="bg-purple-500 col-start-1 col-end-2 row-start-3 row-end-4 rounded-md flex justify-center items-center">
+                    <div id="staffplace" class="flex gap-2 flex-wrap"></div>
+                    <button id="btnplacestaff" class=" bg-slate-600/60 text-[10px] sm:text-[15px] px-2 text-white border border-white w-fit h-fit rounded-md shadow-lg ">Salle du personnel</button>
+                 </div>
+                 <div id="archive" class="bg-orange-500 col-start-2 col-end-3 row-start-2 row-end-3 rounded-md flex justify-center items-center">
+                    <div id="archiveplace" class="flex gap-2 flex-wrap"></div>
+                    <button id="btnplacearchive"  class=" bg-slate-600/60 text-[10px] sm:text-[15px] px-2  text-white border border-white w-fit h-fit rounded-md shadow-lg ">Salle d’archives</button>
+                 </div>
+        </div>
+    </div>
+    <div id="modalform" class="hidden absolute inset-0  h-[120vh] w-full flex justify-center items-center">
+        <div class="bg-white py-5 px-4 h-[610px] w-fit rounded-md  overflow-y-scroll">
+            <form id="add-form" class=" flex flex-col justify-center items-center gap-5">
+                <h3>form</h3>
+              <input id="username" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="text" placeholder="name" required />
+              <input id="userage" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="number" placeholder="age" required />
+              <input id="usermail" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="email" placeholder="email" required />
+              <input id="usertel" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="tel" placeholder="phone" required/>
+              <select class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" name="role" id="userrole" required>
+                <option >---Role---</option>
+                <option value="Réceptionnistes">Réceptionnistes</option>
+                <option value="Techniciens IT">Techniciens IT</option>
+                <option value="Agents de sécurité">Agents de sécurité</option>
+                <option value="Manager">Manager</option>
+                <option value="Nettoyage">Nettoyage</option>
+                <option value="Autres rôles">Autres rôles</option>
+              </select>
+              <input id="userimg" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="text" placeholder="img-url" required />
+              <input id="userstart" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="datetime-local" placeholder="start" required />
+              <input id="userleave" class="h-[30px] w-[300px] rounded-md pl-4 pb-1 text-gray-800 border border-gray-800" type="datetime-local" placeholder="leave" required />
+             
+              <div class="flex flex-col items-center justify-center gap-4 ">
+                <button id="btnexpr" class="bg-orange-600 h-[30px] w-[300px] rounded-md border border-gray-800 transition-transform duration-300 hover:scale-105 hover:text-white hover:duration-500">ADD EXPERION</button>
+                <button id="btnsubmit" class="bg-green-600 h-[30px] w-[300px] rounded-md border border-gray-800 transition-transform duration-300 hover:scale-105 hover:text-white hover:duration-500">SUBMIT</button>
+                <button id="btnannuler" class="bg-yellow-400 h-[30px] w-[300px] rounded-md border border-gray-800 transition-transform duration-300 hover:scale-105 hover:text-white hover:duration-500">Annuler</button>
+              </div> 
+            </form>
+        </div>
+    </div>
+    <div class=" infoplace absolute  flex justify-center items-center "></div>
+    <div class=" salleplace hidden absolute mt-3 bg-slate-200 w-[330px] justify-self-center self-center rounded-md shadow-lg h-[350px] overflow-y-scroll ">
+        <button id="closeSallePlace" class="absolute top-0 right-0 text-red-600 pr-1 py-1 z-[999] block rounded"><strong>X</strong></button></div>
+
+    <script src="logic.js"></script>
+</body>
+</html>
+
