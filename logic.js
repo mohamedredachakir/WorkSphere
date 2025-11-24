@@ -33,12 +33,11 @@ let ageRegex = /^(1[0-9]|[2-9][0-9])$/;
 let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 let phoneRegex = /^[0-9]{10}$/;
 let roleRegex = /^(Manager|Nettoyage|Techniciens IT|Agents de sécurité|Réceptionnistes|Autres rôles)$/;
-// let imgUrlRegex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$/i;
-// let dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+
 
 
 btnsubmit.addEventListener("click", (e) => {
-  e.preventDefault(); //stop reload page
+  e.preventDefault(); 
 
   if (!nameRegex.test(username.value)) {
     alert("Name invalid");
@@ -65,21 +64,6 @@ btnsubmit.addEventListener("click", (e) => {
     return;
   }
 
-  // if (!imgUrlRegex.test(userimg.value)) {
-  //   alert("Image URL invalid");
-  //   return;
-  // }
-
-  // if (!dateRegex.test(userstart.value)) {
-  //   alert("Start date invalid");
-  //   return;
-  // }
-
-  // if (!dateRegex.test(userleave.value)) {
-  //   alert("Leave date invalid");
-  //   return;
-  // }
-
   let exprstart = document.querySelectorAll(".exprstart");
   let exprleave = document.querySelectorAll(".exprleave");
   let exprdis = document.querySelectorAll(".exprdis");
@@ -105,7 +89,7 @@ btnsubmit.addEventListener("click", (e) => {
     expr: exp,
   };
 
-  allusers.push(person);
+    allusers.push(person);
     localStorage.setItem("allusers", JSON.stringify(allusers));
     alert("add person");
     modalform.classList.add("hidden");
@@ -133,10 +117,10 @@ function displayall() {
   addplace.innerHTML = "";
   allusers.forEach((user, index) => {
     const card = document.createElement("div");
-card.className ="flex justify-between items-center px-4 py-2 w-full bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
+    card.className ="flex justify-between items-center px-4 py-2 w-full bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
 
-   card.innerHTML = `
-   <div class="flex justify-evenly">
+    card.innerHTML = `
+    <div class="flex justify-evenly">
     <div class="flex flex-col w-[50%]">
         <p class="text-[15px] font-semibold text-gray-800">${user.name}</p>
     </div>
