@@ -216,16 +216,11 @@ const btnplaceserver = document.querySelector('#btnplaceserver');
 const btnplacearchive = document.querySelector('#btnplacearchive');
 const btnplacesecurite = document.querySelector('#btnplacesecurite');
 
-let rec = 0;
-let conf = 0;
-let st = 0;
-let ser = 0;
-let ar = 0;
-let sec = 0;
+
 
 btnplaceReception.addEventListener('click', ()=>{
-    rec++;
-    if(rec == 4){
+    
+    if(Reception.length == 3){
       alert("salle plaine");
       return;
     }else{displayroles('Réception')}
@@ -233,8 +228,8 @@ btnplaceReception.addEventListener('click', ()=>{
 })
 
 btnplaceconference.addEventListener('click', ()=>{
-    conf++;
-    if(conf == 3){
+    
+    if(conference.length == 2){
       alert("salle plaine");
       return;
     }else{displayroles('conference')}
@@ -242,32 +237,32 @@ btnplaceconference.addEventListener('click', ()=>{
 })
 
 btnplacestaff.addEventListener('click', ()=>{
-    st++;
-    if(st == 3){alert("salle plaine");
+    
+    if(staff.length == 2){alert("salle plaine");
       return;
     }
     else{displayroles('staff')}
 })
 
 btnplaceserver.addEventListener('click', ()=>{
-    ser++;
-    if(ser == 2){alert("salle plaine");
+    
+    if(server.length == 2){alert("salle plaine");
       return;
     }
     else{displayroles('server')}
 })
 
 btnplacearchive.addEventListener('click', ()=>{
-    ar++;
-    if(ar == 1){alert("salle plaine");
+    
+    if(archive.length == 1){alert("salle plaine");
       return;
     }
     else {displayroles('archive')}
 })
 
 btnplacesecurite.addEventListener('click', ()=>{
-    sec++;
-    if(sec == 1){alert("salle plaine");
+    
+    if(securite.length == 2){alert("salle plaine");
       return;
     }
       else{displayroles('securite')}
@@ -358,6 +353,7 @@ let conference = JSON.parse(localStorage.getItem("conference")) || [];
 function addtoplace(user,room) {
     removeuser(user);
     if(room === 'securite'){
+        if(secur)
         securite.push(user);
         localStorage.setItem('securite',JSON.stringify(securite));
         rendersecurite();
@@ -874,6 +870,7 @@ function serverinfo(index){
         card.classList.add('hidden');
     });
 }
+
 
 
 displayall();
