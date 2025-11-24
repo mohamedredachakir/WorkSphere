@@ -338,7 +338,7 @@ let conference = JSON.parse(localStorage.getItem("conference")) || [];
 function addtoplace(user,room) {
     removeuser(user);
     if(room === 'securite'){
-        if(secur)
+        
         securite.push(user);
         localStorage.setItem('securite',JSON.stringify(securite));
         rendersecurite();
