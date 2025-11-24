@@ -117,20 +117,21 @@ function displayall() {
   addplace.innerHTML = "";
   allusers.forEach((user, index) => {
     const card = document.createElement("div");
-    card.className ="flex justify-between items-center px-4 py-2 w-full bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
-
+    card.className ="flex justify-between items-center px-4 py-2 w-full bg-white/60 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200  justify-self-center ";
     card.innerHTML = `
-    <div class="flex justify-evenly">
-    <div class="flex flex-col w-[50%]">
+    <div class="w-full max-w-sm bg-white shadow-md rounded-2xl p-4 flex items-center justify-between  gap-4">
+    <div class="flex items-center gap-3">
+        <img src="${user.img}" 
+             class="w-14 h-14 rounded-full object-cover border border-gray-300">
+    </div>
+    <div class="flex flex-col gap-2">       
         <p class="text-[15px] font-semibold text-gray-800">${user.name}</p>
+        <div class="flex gap-2">
+            <button class="deleteuser bg-red-600 text-white px-3 py-1 rounded-lg text-[12px] hover:bg-red-700 transition">Dlt</button>
+            <button class="infouser bg-blue-500 text-white px-3 py-1 rounded-lg text-[12px] hover:bg-blue-600 transition">Inf</button>
+        </div>
     </div>
-
-    <div class="flex justify-evenly gap-2 w-[50%]">
-        <button class="deleteuser bg-red-600 text-white px-3 py-1 rounded-lg text-[12px] hover:bg-red-700 transition">Dlt</button>
-        <button class="infouser bg-blue-500 text-white px-3 py-1 rounded-lg text-[12px] hover:bg-blue-600 transition">Inf</button>
-    </div>
-    </div>
-`;
+    </div>`;
 
     addplace.appendChild(card);
 
@@ -161,7 +162,7 @@ const infoplace = document.querySelector('.infoplace');
 function info(index){
     let user = allusers[index];
      const card = document.createElement('div');
-    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 ";
     card.innerHTML = `
         <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
         <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
@@ -376,13 +377,11 @@ function rendersecurite() {
     securite.forEach((user, index) => {
 
         const card = document.createElement('div');
-        card.className = "flex justify-evenly items-center w-full h-[40px] bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
-        card.innerHTML = `
-            <button class="infoinplace">
-                <h2 class="text-center w-[50%] text-[12px] font-bold">${user.name}</h2>
-            </button>
-            <button class="deleteinplace bg-red-600 w-fit text-white px-3 py-1 rounded-lg text-[12px] hover:bg-red-700 transition">X</button>
-        `;
+        card.className = card.className ="flex relative justify-evenly items-center p-4 bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
+    card.innerHTML = `
+     <button class="infoinplace"><h2 class=" w-[50%] text-[12px] font-bold">${user.name}</h2></button>
+     <button class="deleteinplace bg-red-600 absolute top-[2%] left-[75%] text-white w-[20px] h-[20px] rounded-[50%] text-[10px] hover:bg-red-700 transition">X</button>
+    `
 
         const infoinplace = card.querySelector('.infoinplace');
         infoinplace.addEventListener('click', () => {
@@ -411,10 +410,10 @@ function renderreception(){
     Receptionplace.innerHTML = '';
    Reception.forEach((user,index)=>{
     const card = document.createElement('div');
-    card.className = card.className ="flex justify-evenly items-center w-full h-[40px] bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
+    card.className = card.className ="flex relative justify-evenly items-center p-4 bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
     card.innerHTML = `
-     <button class="infoinplace"><h2 class="text-center w-[50%] text-[12px] font-bold">${user.name}</h2></button>
-     <button class="deleteinplace bg-red-600 w-fit text-white px-3 py-1 rounded-lg text-[12px] hover:bg-red-700 transition">X</button>
+     <button class="infoinplace"><h2 class=" w-[50%] text-[12px] font-bold">${user.name}</h2></button>
+     <button class="deleteinplace bg-red-600 absolute top-[2%] left-[75%] text-white w-[20px] h-[20px] rounded-[50%] text-[10px] hover:bg-red-700 transition">X</button>
     `
     
     const infoinplace = card.querySelector('.infoinplace');
@@ -447,15 +446,11 @@ function renderconfernce() {
 
     conference.forEach((user, index) => {
         const card = document.createElement('div');
-        card.className =
-            "flex justify-evenly items-center w-full h-[40px] bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
-
-        card.innerHTML = `
-            <button class="infoinplace">
-                <h2 class="text-center w-[50%] text-[12px] font-bold">${user.name}</h2>
-            </button>
-            <button class="deleteinplace bg-red-600 w-fit text-white px-3 py-1 rounded-lg text-[12px] hover:bg-red-700 transition">X</button>
-        `;
+        card.className = card.className ="flex relative justify-evenly items-center p-4 bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
+    card.innerHTML = `
+     <button class="infoinplace"><h2 class=" w-[50%] text-[12px] font-bold">${user.name}</h2></button>
+     <button class="deleteinplace bg-red-600 absolute top-[2%] left-[75%] text-white w-[20px] h-[20px] rounded-[50%] text-[10px] hover:bg-red-700 transition">X</button>
+    `
 
         const infoinplace = card.querySelector('.infoinplace');
         infoinplace.addEventListener('click', () => {
@@ -486,15 +481,11 @@ function renderstaff() {
 
     staff.forEach((user, index) => {
         const card = document.createElement('div');
-        card.className =
-            "flex justify-evenly items-center w-full h-[40px] bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
-
-        card.innerHTML = `
-            <button class="infoinplace">
-                <h2 class="text-center w-[50%] text-[12px] font-bold">${user.name}</h2>
-            </button>
-            <button class="deleteinplace bg-red-600 w-fit text-white px-3 py-1 rounded-lg text-[12px] hover:bg-red-700 transition">X</button>
-        `;
+       card.className = card.className ="flex relative justify-evenly items-center p-4 bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
+    card.innerHTML = `
+     <button class="infoinplace"><h2 class=" w-[50%] text-[12px] font-bold">${user.name}</h2></button>
+     <button class="deleteinplace bg-red-600 absolute top-[2%] left-[75%] text-white w-[20px] h-[20px] rounded-[50%] text-[10px] hover:bg-red-700 transition">X</button>
+    `
 
         const infoinplace = card.querySelector('.infoinplace');
         infoinplace.addEventListener('click', () => {
@@ -526,15 +517,11 @@ function renderarchive() {
 
     archive.forEach((user, index) => {
         const card = document.createElement('div');
-        card.className =
-            "flex justify-evenly items-center w-full h-[40px] bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
-
-        card.innerHTML = `
-            <button class="infoinplace">
-                <h2 class="text-center w-[50%] text-[12px] font-bold">${user.name}</h2>
-            </button>
-            <button class="deleteinplace bg-red-600 w-fit text-white px-3 py-1 rounded-lg text-[12px] hover:bg-red-700 transition">X</button>
-        `;
+        card.className = card.className ="flex relative justify-evenly items-center p-4 bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
+    card.innerHTML = `
+     <button class="infoinplace"><h2 class=" w-[50%] text-[12px] font-bold">${user.name}</h2></button>
+     <button class="deleteinplace bg-red-600 absolute top-[2%] left-[75%] text-white w-[20px] h-[20px] rounded-[50%] text-[10px] hover:bg-red-700 transition">X</button>
+    `
 
         const infoinplace = card.querySelector('.infoinplace');
         infoinplace.addEventListener('click', () => {
@@ -566,15 +553,11 @@ function renderserver() {
 
     server.forEach((user, index) => {
         const card = document.createElement('div');
-        card.className =
-            "flex justify-evenly items-center w-full h-[40px] bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
-
-        card.innerHTML = `
-            <button class="infoinplace">
-                <h2 class="text-center w-[50%] text-[12px] font-bold">${user.name}</h2>
-            </button>
-            <button class="deleteinplace bg-red-600 w-fit text-white px-3 py-1 rounded-lg text-[12px] hover:bg-red-700 transition">X</button>
-        `;
+        card.className = card.className ="flex relative justify-evenly items-center p-4 bg-white/80 backdrop-blur-sm shadow-md border border-gray-300 rounded-xl hover:shadow-lg transition duration-200";
+    card.innerHTML = `
+     <button class="infoinplace"><h2 class=" w-[50%] text-[12px] font-bold">${user.name}</h2></button>
+     <button class="deleteinplace bg-red-600 absolute top-[2%] left-[75%] text-white w-[20px] h-[20px] rounded-[50%] text-[10px] hover:bg-red-700 transition">X</button>
+    `
 
         const infoinplace = card.querySelector('.infoinplace');
         infoinplace.addEventListener('click', () => {
@@ -606,7 +589,7 @@ function securiteinfo(index) {
     let user = securite[index];
 
     const card = document.createElement('div');
-    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 ";
 
     card.innerHTML = `
         <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
@@ -652,7 +635,7 @@ function securiteinfo(index) {
 function Receptioninfo(index){
     let user = Reception[index];
     const card = document.createElement('div');
-    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 ";
     card.innerHTML = `
         <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
         <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
@@ -693,7 +676,7 @@ function Receptioninfo(index){
 function conferenceinfo(index){
     let user = conference[index];
     const card = document.createElement('div');
-    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 ";
     card.innerHTML = `
         <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
         <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
@@ -735,7 +718,7 @@ function conferenceinfo(index){
 function staffinfo(index){
     let user = staff[index];
     const card = document.createElement('div');
-    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 ";
     card.innerHTML = `
         <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
         <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
@@ -776,7 +759,7 @@ function staffinfo(index){
 function archiveinfo(index){
     let user = archive[index];
     const card = document.createElement('div');
-    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 ";
     card.innerHTML = `
         <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
         <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
@@ -817,7 +800,7 @@ function archiveinfo(index){
 function serverinfo(index){
     let user = server[index];
     const card = document.createElement('div');
-    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 overflow-y-scroll";
+    card.className = "bg-gray-300 border p-4 rounded-md shadow text-white flex flex-col gap-4 relative m-4 ";
     card.innerHTML = `
         <img class="rounded-md w-full h-[180px] object-cover" src="${user.img}">
         <h2 class="text-center text-[25px] font-bold">${user.name}</h2>
